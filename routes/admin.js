@@ -20,12 +20,17 @@ router.get('/add-product', (req, res, next) => {
     // pug
     // res.render('add-product', { pageTitle: 'Add Product' })
     // handlebars
+    // res.render('add-product', {
+    //     pageTitle: 'Add Product'
+    //     , path: '/admin/add-product'
+    //     , formsCSS: true
+    //     , productCSS: true
+    //     , activeAddProduct: true
+    // })
+    // ejs
     res.render('add-product', {
         pageTitle: 'Add Product'
         , path: '/admin/add-product'
-        , formsCSS: true
-        , productCSS: true
-        , activeAddProduct: true
     })
 })
 

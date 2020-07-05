@@ -15,12 +15,17 @@ router.get('/', (req, res, next) => {
     // pug
     // res.render('shop', { prods: products, pageTitle: 'Shop' })
     // handlebars
+    // res.render('shop', { prods: products
+    //     , pageTitle: 'Shop'
+    //     , path: '/'
+    //     , hasProducts: !!products.length
+    //     , activeShop: true
+    //     , productCSS: true
+    //  })
+    // ejs
     res.render('shop', { prods: products
         , pageTitle: 'Shop'
         , path: '/'
-        , hasProducts: !!products.length
-        , activeShop: true
-        , productCSS: true
      })
 })
 
