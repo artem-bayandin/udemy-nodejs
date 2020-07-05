@@ -1,0 +1,26 @@
+{
+  "name": "udemy-nodejs",
+  "version": "1.0.0",
+  "description": "Reminding Node.js (incl. MVC, REST, GraphQL, Deno, MongoDB, Express, Auth, Stripe, etc.) on Udemy",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artem-bayandin/udemy-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artem-bayandin/udemy-nodejs/issues"
+  },
+  "homepage": "https://github.com/artem-bayandin/udemy-nodejs#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
