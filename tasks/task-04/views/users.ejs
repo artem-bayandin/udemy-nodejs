@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+<main>
+    <%- include('partials/menu') %>
+    <h1>Users</h1>
+    <% if (users.length) { %>
+        <% for (let username of users) { %>
+            <div><%= username %></div>
+        <% } %>
+    <% } else { %>
+        <h2>no users</h2>
+    <% } %>
+</main>
+<%- include('partials/footer') %>
