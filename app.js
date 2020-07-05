@@ -1,17 +1,31 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 
 const app = express()
 
-app.use((req, res, next) => {
-    console.log('one')
+app.use(bodyParser.urlencoded({extended: false}))
+
+app.use('/', (req, res, next) => {
+    console.log('top level middleware before next()')
     next()
-    console.log('two')
+    console.log('top level middleware after next()')
 })
 
-app.use((req, res, next) => {
-    console.log('three')
-    res.send('<h2>hello</h2>')
-    console.log('four')
+app.get('/add-product', (req, res, next) => {
+    res.send(`<form action="/product" method="POST">
+    <input type="text" name="title" />
+    <button type="submit">add product</button>
+    </form>`)
+})
+
+app.post('/product', (req, res, next) => {
+    const data = req.body
+    console.log(data)
+    res.redirect('/')
+})
+
+app.use('/', (req, res, next) => {
+    res.send('<h1>hello</h1>')
 })
 
 app.listen(3000)
