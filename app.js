@@ -1,9 +1,16 @@
+const path = require('path')
+
 const express = require('express')
 const bodyParser = require('body-parser')
+
+const adminRoutes = require('./routes/admin')
+const shopRoutes = require('./routes/shop')
+const rootDir = require('./util/path')
 
 const app = express()
 
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', (req, res, next) => {
     console.log('top level middleware before next()')
@@ -11,21 +18,11 @@ app.use('/', (req, res, next) => {
     console.log('top level middleware after next()')
 })
 
-app.get('/add-product', (req, res, next) => {
-    res.send(`<form action="/product" method="POST">
-    <input type="text" name="title" />
-    <button type="submit">add product</button>
-    </form>`)
-})
-
-app.post('/product', (req, res, next) => {
-    const data = req.body
-    console.log(data)
-    res.redirect('/')
-})
+app.use('/admin', adminRoutes)
+app.use(shopRoutes)
 
 app.use('/', (req, res, next) => {
-    res.send('<h1>hello</h1>')
+    res.status(404).sendFile(path.join(rootDir, 'views', '404.html'))
 })
 
 app.listen(3000)
