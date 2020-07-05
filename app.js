@@ -4,9 +4,10 @@ const express = require('express')
 const bodyParser = require('body-parser')
 // const expressHbs = require('express-handlebars')
 
-const adminData = require('./routes/admin')
+const adminRoutes = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
 const rootDir = require('./util/path')
+const errorController = require('./controllers/error')
 
 const app = express()
 
@@ -31,12 +32,9 @@ app.use('/', (req, res, next) => {
     console.log('top level middleware after next()')
 })
 
-app.use('/admin', adminData.router)
+app.use('/admin', adminRoutes)
 app.use(shopRoutes)
 
-app.use('/', (req, res, next) => {
-    // res.status(404).sendFile(path.join(rootDir, 'views', '404.html'))
-    res.status(404).render('404', { pageTitle: 'Page not found', path: '' })
-})
+app.use('/', errorController.get404)
 
 app.listen(3000)

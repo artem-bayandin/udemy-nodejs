@@ -7,7 +7,8 @@ Certificate of completion: [in progress]
 // Time logs
 1..24 = 1 hour
 
-start 25 at 21:25 | end 41 at 22:36 = 70m
-start 42 at 12:43 | end 72 at 14:17 = 95m
-start 73 at 14:54 | end 76 at 15:23 = 30m
-start 77 at 15:23 | end 94 at 17:16 = 115m
+start 25 at 21:25 | end 41 at 22:36 = 70m   | 37m + 50m + 93m   | 3h
+start 42 at 12:43 | end 72 at 14:17 = 95m   | 48m               | 3h 48m
+start 73 at 14:54 | end 76 at 15:23 = 30m   | 94m               | 5h 22m
+start 77 at 15:23 | end 94 at 17:16 = 115m  | 123m              | 7h 25m
+start 95 ar 19:02
