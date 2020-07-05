@@ -3,7 +3,7 @@ const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 
-const adminRoutes = require('./routes/admin')
+const adminData = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
 const rootDir = require('./util/path')
 
@@ -18,7 +18,7 @@ app.use('/', (req, res, next) => {
     console.log('top level middleware after next()')
 })
 
-app.use('/admin', adminRoutes)
+app.use('/admin', adminData.router)
 app.use(shopRoutes)
 
 app.use('/', (req, res, next) => {
