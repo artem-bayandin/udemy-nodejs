@@ -34,9 +34,11 @@ exports.postAddProduct = (req, res, next) => {
         , req.body.descr
         , req.body.price
     )
-    product.save(err => {
-        res.redirect('/admin/products')
-    })
+    product.save()
+        .then(() => {
+            res.redirect('/admin/products')
+        })
+        .catch(err => console.log(err))
 }
 
 exports.getEditProduct = (req, res, next) => {
