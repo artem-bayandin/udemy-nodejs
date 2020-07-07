@@ -27,9 +27,9 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', (req, res, next) => {
-    console.log('top level middleware before next()')
+    // console.log('top level middleware before next()')
     next()
-    console.log('top level middleware after next()')
+    // console.log('top level middleware after next()')
 })
 
 app.use('/admin', adminRoutes)

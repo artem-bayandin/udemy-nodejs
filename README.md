@@ -5,10 +5,11 @@ Udemy course: https://www.udemy.com/course/nodejs-the-complete-guide
 Certificate of completion: [in progress]
 
 // Time logs
-1..24 = 1 hour
 
-start 25 at 21:25 | end 41 at 22:36 = 70m   | 37m + 50m + 93m   | 3h
-start 42 at 12:43 | end 72 at 14:17 = 95m   | 48m               | 3h 48m
-start 73 at 14:54 | end 76 at 15:23 = 30m   | 94m               | 5h 22m
-start 77 at 15:23 | end 94 at 17:16 = 115m  | 123m              | 7h 25m
-start 95 ar 19:02
+start   1 at __:__  | end  24 at __:__  = 60m   | __:__ | 37m + 50m         | __:__
+start  25 at 21:25  | end  41 at 22:36  = 71m   | __:__ | 93m               | __:__
+start  42 at 12:43  | end  72 at 14:17  = 99m   | __:__ | 48m               | __:__
+start  73 at 14:54  | end  76 at 15:23  = 29m   | __:__ | 94m               | __:__
+start  77 at 15:23  | end  94 at 17:16  = 113m  | __:__ | 123m              | __:__
+start  95 at 19:02  | end 107 at 19:46  = 44m   | __:__ |                   | __:__
+start 108 at 18:05  | end 133 at 21.30  = 205m  | 10:21 | 44m + 36m + 99m   | 10:24
