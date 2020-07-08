@@ -21,8 +21,8 @@
                 <input type="number" name="price" id="price" step="0.01" value="<%= editing ? product.price : '' %>">
             </div>
             <div class="form-control">
-                <label for="descr">Description</label>
-                <textarea name="descr" id="descr" rows="5"><%= editing ? product.descr : '' %></textarea>
+                <label for="description">Description</label>
+                <textarea name="description" id="description" rows="5"><%= editing ? product.description : '' %></textarea>
             </div>
             <% if (editing) { %>
                 <input type="hidden" name="productId" value="<%= product.id %>" />
