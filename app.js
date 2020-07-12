@@ -6,9 +6,12 @@ const bodyParser = require('body-parser')
 
 const adminRoutes = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
-const rootDir = require('./util/path')
 const errorController = require('./controllers/error')
 
+const PORT = 3000
+
+/* SEQUELIZE imports */
+/*
 const sequelize = require('./util/database')
 const Product = require('./models/product')
 const User = require('./models/user')
@@ -16,6 +19,11 @@ const Cart = require('./models/cart')
 const CartItem = require('./models/cart-item')
 const Order = require('./models/order')
 const OrderItem = require('./models/order-item')
+*/
+
+/* MongoDB */
+const { mongoConnect } = require('./util/mongo-database')
+const User = require('./models/user')
 
 const app = express()
 
@@ -35,14 +43,13 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', (req, res, next) => {
-    // console.log('top level middleware before next()')
-    User.findByPk(1)
+    User
+        .findByPk('5f0b44e28910b51e0cbbbde3')
         .then(user => {
-            req.user = user
+            req.user = new User(user.username, user.email, user._id, user.cart)
             next()
         })
-        .catch(err => console.log(err))  
-    // console.log('top level middleware after next()')
+        .catch(err => console.log(err))
 })
 
 app.use('/admin', adminRoutes)
@@ -50,6 +57,8 @@ app.use(shopRoutes)
 
 app.use('/', errorController.get404)
 
+/* SEQUELIZE relations */
+/*
 Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' })
 User.hasMany(Product) // not necessary
 
@@ -62,7 +71,10 @@ Order.belongsTo(User)
 User.hasMany(Order)
 Order.belongsToMany(Product, { through: OrderItem })
 Product.belongsToMany(Order, { through: OrderItem })
+*/
 
+/* SEQUELIZE init app */
+/*
 sequelize
     // .sync({force: true}) // not for production
     .sync()
@@ -84,4 +96,10 @@ sequelize
         app.listen(3000)
     })
     .catch(err => console.log(err))
+*/
 
+mongoConnect(client => {
+    app.listen(PORT, () => {
+        console.log(`listening on port ${PORT}`)
+    })
+})

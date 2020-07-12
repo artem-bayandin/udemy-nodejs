@@ -62,7 +62,7 @@
 
 const { Sequelize, DataTypes } = require('sequelize')
 
-const sequelize = require('../../util/database')
+const sequelize = require('../../util/sequelize-database')
 
 const Product = sequelize.define('product', {
     id: {
